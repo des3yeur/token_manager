@@ -1,132 +1,77 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Solidity from "../../components/blockchains/solidity";
+import Rust from "../../components/blockchains/rust";
 
 const Dashboard = () => {
-  const [showingEth, setShowingEth] = useState(false);
-  const [eth, setEth] = useState({
-    Tokenname: "",
-    Symbol: "",
-    initialsupply: "",
-    decimals: "",
-    template: "",
-    tokenname: "",
-    symbol: "",
+  const [blockchains, setBlockchains] = useState([]);
+  const [showBlockchains, setShowBlockchains] = useState({
+    go: false,
+    rust: false,
+    ruby: false,
+    solidity: false,
   });
 
-  const ShowEth = () => {
-    const SubmitData = () => {
-      const data = {
-        Tokenname: eth.Tokenname,
-        Symbol: eth.Symbol,
-        initialsupply: eth.InitialSupply,
-        decimals: eth.Decimals,
-        template: eth.Template,
-        tokenname: eth.tokenname,
-        symbol: eth.symbol,
-      };
+  useEffect(() => {
+    axios
+      .get("/api/blockchains")
+      .then((response) => {
+        // console.log(response.data["hydra:member"]);
+        setBlockchains(response.data["hydra:member"]);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
-      axios
-        .post("/api/ethereums", data)
-        .then(() => alert("success"))
-        .catch((error) => alert(error));
-    };
-
-    return (
-      <>
-        <form action="" className="flex flex-col">
-          <div>
-            <label htmlFor="">Token name</label>
-            <input
-              type="text"
-              onChange={(e) => {
-                setEth({
-                  ...eth,
-                  Tokenname: e.target.value,
-                  tokenname: e.target.value,
-                });
-              }}
-            />
-          </div>
-          <div>
-            <label htmlFor="">Symbol</label>
-            <input
-              type="text"
-              onChange={(e) => {
-                setEth({
-                  ...eth,
-                  symbol: e.target.value,
-                  Symbol: e.target.value,
-                });
-              }}
-            />
-          </div>
-          <div>
-            <label htmlFor="">Initial Supply</label>
-            <input
-              type="text"
-              onChange={(e) => {
-                setEth({
-                  ...eth,
-                  InitialSupply: e.target.value,
-                  InitialSupply: e.target.value,
-                });
-              }}
-            />
-          </div>
-          <div>
-            <label htmlFor="">Decimals</label>
-            <input
-              type="text"
-              onChange={(e) => {
-                setEth({
-                  ...eth,
-                  Decimals: e.target.value,
-                  Decimals: e.target.value,
-                });
-              }}
-            />
-          </div>
-          <div>
-            <label htmlFor="">Template</label>
-            <input
-              type="text"
-              onChange={(e) => {
-                setEth({
-                  ...eth,
-                  Template: e.target.value,
-                  Template: e.target.value,
-                });
-              }}
-            />
-          </div>
-          <button type="button" onClick={() => SubmitData()}>
-            Envoyer
-          </button>
-        </form>
-      </>
-    );
+  const Blockchains = (blockchain) => {
+    if (blockchain === "rust") {
+      // alert("je suis rust");
+      setShowBlockchains({
+        go: false,
+        rust: true,
+        ruby: false,
+        solidity: false,
+      });
+    } else if (blockchain === "solidity") {
+      // alert("je suis solidty");
+      setShowBlockchains({
+        go: false,
+        rust: false,
+        ruby: false,
+        solidity: true,
+      });
+    } else {
+      console.log();
+    }
   };
 
   return (
     <>
       <div className="grid grid-cols-3">
-        <div className="grid grid-cols-2 p-4 bg-blue-300">
-          <div>SUI</div>
-          <div>Aptos</div>
-          <div>
-            <button
-              type="button"
-              className="p-4 bg-blue-900 uppercase text-white font-bold"
-              onClick={() => setShowingEth(true)}
-            >
-              ETH
-            </button>
-          </div>
-          <div>TRX</div>
+        <div className="grid grid-cols-2">
+          {blockchains.map((blockchain) => {
+            return (
+              <div key={blockchain.id}>
+                <div
+                  className="inline-flex"
+                  onClick={() => Blockchains(blockchain.blockchain)}
+                >
+                  {blockchain.symbol}
+                  <img
+                    src={blockchain.logo}
+                    alt=""
+                    width={50}
+                    height={"auto"}
+                  />
+                </div>
+              </div>
+            );
+          })}
         </div>
-        <div className="flex justify-center items-center p-8 col-span-2">
-          {/* {ShowEth()}; */}
-          {showingEth === true ? ShowEth() : null}
+        <div className="col-span-2 flex justify-center items-center p-8">
+          {showBlockchains.solidity ? <Solidity /> : null}
+          {showBlockchains.rust ? <Rust /> : null}
         </div>
       </div>
     </>

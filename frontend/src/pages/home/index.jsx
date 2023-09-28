@@ -66,45 +66,47 @@ const Home = () => {
 
   return (
     <>
-      <form action="">
-        <div>
-          <label htmlFor="">Nom</label>
-          <input type="text" onChange={OnChangeName} />
-        </div>
-        <div>
-          <label htmlFor="">Description</label>
-          <input type="text" onChange={OnChangeDesc} />
-        </div>
-        <div>
-          <label htmlFor="">Price</label>
-          <input type="text" onChange={OnChangePrice} />
-        </div>
-        <div>
-          <button type="button" onClick={() => SubmitForm()}>
-            envoyer
-          </button>
-        </div>
-      </form>
-      {console.log(posts)}
-      <div className="grid grid-cols-2">
-        {posts.map((post) => {
-          return (
-            <div key={post.id}>
-              Nom : {post.name}
-              <br />
-              Descriptions : {post.description}
-              <div>
-                <button
-                  type="button"
-                  className="bg-red-500 p-4 uppercase"
-                  onClick={() => Deletepost(post.id)}
-                >
-                  supprimer
-                </button>
+      <div className="bg-black">
+        <form className="flex justify-center" action="">
+          <div>
+            <label htmlFor="">Nom</label>
+            <input type="text" onChange={OnChangeName} />
+          </div>
+          <div>
+            <label htmlFor="">Description</label>
+            <input type="text" onChange={OnChangeDesc} />
+          </div>
+          <div>
+            <label htmlFor="">Price</label>
+            <input type="text" onChange={OnChangePrice} />
+          </div>
+          <div>
+            <button type="button" onClick={() => SubmitForm()}>
+              envoyer
+            </button>
+          </div>
+        </form>
+        {console.log(posts)}
+        <div className="grid grid-cols-2">
+          {posts.map((post) => {
+            return (
+              <div key={post.id}>
+                Nom : {post.name}
+                <br />
+                Descriptions : {post.description}
+                <div>
+                  <button
+                    type="button"
+                    className="bg-red-500 p-4 uppercase"
+                    onClick={() => Deletepost(post.id)}
+                  >
+                    supprimer
+                  </button>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </>
   );

@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\Base;
+use App\Entity\BlockchainRust;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Base>
+ * @extends ServiceEntityRepository<BlockchainRust>
  *
- * @method Base|null find($id, $lockMode = null, $lockVersion = null)
- * @method Base|null findOneBy(array $criteria, array $orderBy = null)
- * @method Base[]    findAll()
- * @method Base[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method BlockchainRust|null find($id, $lockMode = null, $lockVersion = null)
+ * @method BlockchainRust|null findOneBy(array $criteria, array $orderBy = null)
+ * @method BlockchainRust[]    findAll()
+ * @method BlockchainRust[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class BaseRepository extends ServiceEntityRepository
+class BlockchainRustRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Base::class);
+        parent::__construct($registry, BlockchainRust::class);
     }
 
 //    /**
-//     * @return Base[] Returns an array of Base objects
+//     * @return BlockchainRust[] Returns an array of BlockchainRust objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class BaseRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Base
+//    public function findOneBySomeField($value): ?BlockchainRust
 //    {
 //        return $this->createQueryBuilder('b')
 //            ->andWhere('b.exampleField = :val')

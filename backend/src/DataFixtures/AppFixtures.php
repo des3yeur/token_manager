@@ -16,10 +16,7 @@ class AppFixtures extends Fixture
             $product->setname('Produit numéro :' . $i);
             $product->setDescription('Lorem'. $i);
             $manager->persist($product);
-            
-            // $manager->persist($product);
-            $manager->flush();
-            
         }
+        $manager->flush();
     }
 }

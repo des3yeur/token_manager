@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\BSC;
+use App\Entity\Blockchain;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<BSC>
+ * @extends ServiceEntityRepository<Blockchain>
  *
- * @method BSC|null find($id, $lockMode = null, $lockVersion = null)
- * @method BSC|null findOneBy(array $criteria, array $orderBy = null)
- * @method BSC[]    findAll()
- * @method BSC[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Blockchain|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Blockchain|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Blockchain[]    findAll()
+ * @method Blockchain[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class BSCRepository extends ServiceEntityRepository
+class BlockchainRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, BSC::class);
+        parent::__construct($registry, Blockchain::class);
     }
 
 //    /**
-//     * @return BSC[] Returns an array of BSC objects
+//     * @return Blockchain[] Returns an array of Blockchain objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class BSCRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?BSC
+//    public function findOneBySomeField($value): ?Blockchain
 //    {
 //        return $this->createQueryBuilder('b')
 //            ->andWhere('b.exampleField = :val')
