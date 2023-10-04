@@ -14,7 +14,8 @@ Token Manager est un fork de la fonction "créer un token" de Cointool. A la dif
 ## To do list 🗓️
 
 **Semaine 38:** créer un form de connexion privé / créer un form des bc à séléctionner avec un form des champs à remplir 
-**Semaine 39:** sécurisé la route admin en effectuant une redirection 
+**Semaine 39:** sécurisé la route admin en effectuant une redirection / re-architecturage du systeme d'entité avec double systeme d'entités
+**Semaine 40:** finalisation du dashboard avec toutes les entités languages de programation et blockchains completées / integration d'un systeme de template avec cases pré-remplis / 
 
 ## Liens 🔗
 

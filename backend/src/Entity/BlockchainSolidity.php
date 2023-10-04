@@ -21,6 +21,9 @@ class BlockchainSolidity
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $symbol = null;
 
+    #[ORM\Column]
+    private ?int $initialSupply = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -46,6 +49,18 @@ class BlockchainSolidity
     public function setSymbol(?string $symbol): static
     {
         $this->symbol = $symbol;
+
+        return $this;
+    }
+
+    public function getInitialSupply(): ?int
+    {
+        return $this->initialSupply;
+    }
+
+    public function setInitialSupply(int $initialSupply): static
+    {
+        $this->initialSupply = $initialSupply;
 
         return $this;
     }

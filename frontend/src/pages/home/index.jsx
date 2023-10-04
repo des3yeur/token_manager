@@ -8,6 +8,7 @@ const Home = () => {
     name: "",
     description: "",
     price: 0,
+
   });
 
   // console.log(process.env.URL_TEST);
@@ -66,7 +67,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="bg-black">
+      <div className="bg-black text-white">
         <form className="flex justify-center" action="">
           <div>
             <label htmlFor="">Nom</label>

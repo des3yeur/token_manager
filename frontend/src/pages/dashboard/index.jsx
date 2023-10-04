@@ -41,6 +41,22 @@ const Dashboard = () => {
         ruby: false,
         solidity: true,
       });
+      } else if (blockchain === "go") {
+      // alert("je suis go");
+      setShowBlockchains({
+        go: true,
+        rust: false,
+        ruby: false,
+        solidity: false,
+      });
+      } else if (blockchain === "ruby") {
+      // alert("je suis ruby");
+      setShowBlockchains({
+        go: false,
+        rust: false,
+        ruby: true,
+        solidity: false,
+      });
     } else {
       console.log();
     }
@@ -48,7 +64,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-3 ">
         <div className="grid grid-cols-2">
           {blockchains.map((blockchain) => {
             return (
@@ -72,6 +88,8 @@ const Dashboard = () => {
         <div className="col-span-2 flex justify-center items-center p-8">
           {showBlockchains.solidity ? <Solidity /> : null}
           {showBlockchains.rust ? <Rust /> : null}
+          {showBlockchains.go ? <Go /> : null}
+          {showBlockchains.ruby ? <Ruby /> : null}
         </div>
       </div>
     </>
