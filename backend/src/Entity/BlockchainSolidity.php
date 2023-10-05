@@ -24,6 +24,9 @@ class BlockchainSolidity
     #[ORM\Column]
     private ?int $initialSupply = null;
 
+    #[ORM\Column]
+    private ?int $decimals = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -61,6 +64,18 @@ class BlockchainSolidity
     public function setInitialSupply(int $initialSupply): static
     {
         $this->initialSupply = $initialSupply;
+
+        return $this;
+    }
+
+    public function getDecimals(): ?int
+    {
+        return $this->decimals;
+    }
+
+    public function setDecimals(int $decimals): static
+    {
+        $this->decimals = $decimals;
 
         return $this;
     }

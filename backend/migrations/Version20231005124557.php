@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20231004075310 extends AbstractMigration
+final class Version20231005124557 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,12 +20,12 @@ final class Version20231004075310 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE blockchain_solidity ADD initial_supply INT NOT NULL');
+        $this->addSql('ALTER TABLE blockchain_solidity ADD decimals INT NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE blockchain_solidity DROP initial_supply');
+        $this->addSql('ALTER TABLE blockchain_solidity DROP decimals');
     }
 }

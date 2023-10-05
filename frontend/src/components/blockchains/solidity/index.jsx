@@ -28,7 +28,7 @@ const Solidity = () => {
   return (
     <>
       <form action="">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center ">
           <label htmlFor="">Token name</label>
           <input
             type="text"

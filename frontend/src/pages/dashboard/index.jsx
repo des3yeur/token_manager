@@ -65,7 +65,7 @@ const Dashboard = () => {
   return (
     <>
       <div className="grid grid-cols-3 ">
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-2 bg-green95 text-white95 text-center ">
           {blockchains.map((blockchain) => {
             return (
               <div key={blockchain.id}>
@@ -85,7 +85,7 @@ const Dashboard = () => {
             );
           })}
         </div>
-        <div className="col-span-2 flex justify-center items-center p-8">
+        <div className="col-span-2 flex justify-center items-center p-8 bg-gray95">
           {showBlockchains.solidity ? <Solidity /> : null}
           {showBlockchains.rust ? <Rust /> : null}
           {showBlockchains.go ? <Go /> : null}
