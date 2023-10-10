@@ -54,7 +54,12 @@ security:
   access_control:
     # - { path: ^/admin, roles: ROLE_USER }
     # - { path: ^/profile, roles: ROLE_USER }
-    - { path: ^/api, roles: ROLE_ADMIN, methods: ["POST", "PUT", "DELETE"] }
+    - { path: ^/profil, roles: ROLE_USER, methods: ["GET"] }
+    - {
+        path: ^/api/(blockchain_solidities),
+        roles: [ROLE_SUPER_USER, ROLE_ADMIN],
+        methods: ["GET", "POST", "PUT", "DELETE"],
+      }
     - { path: ^/api/(login|token/refresh), roles: PUBLIC_ACCESS }
 
 when@test:

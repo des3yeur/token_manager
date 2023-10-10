@@ -2,8 +2,7 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../../pages/home";
 import Dashboard from "../../pages/dashboard";
-
-
+import AdminProvider from "../../components/context/adminProvider";
 
 export const Provider = createBrowserRouter([
   {
@@ -12,7 +11,12 @@ export const Provider = createBrowserRouter([
   },
   {
     path: "/profil",
-    element: <Dashboard />,
+    element: (
+      <>
+        <AdminProvider>
+          <Dashboard />
+        </AdminProvider>
+      </>
+    ),
   },
 ]);
-

@@ -41,7 +41,7 @@ const Dashboard = () => {
         ruby: false,
         solidity: true,
       });
-      } else if (blockchain === "go") {
+    } else if (blockchain === "go") {
       // alert("je suis go");
       setShowBlockchains({
         go: true,
@@ -49,7 +49,7 @@ const Dashboard = () => {
         ruby: false,
         solidity: false,
       });
-      } else if (blockchain === "ruby") {
+    } else if (blockchain === "ruby") {
       // alert("je suis ruby");
       setShowBlockchains({
         go: false,
@@ -91,6 +91,10 @@ const Dashboard = () => {
           {showBlockchains.go ? <Go /> : null}
           {showBlockchains.ruby ? <Ruby /> : null}
         </div>
+
+        {window.user.roles.includes("ROLE_ADMIN") ? (
+          <h1>CONTENU ADMIN</h1>
+        ) : null}
       </div>
     </>
   );

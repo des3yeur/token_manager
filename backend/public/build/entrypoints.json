@@ -4,7 +4,7 @@
       "js": [
         "http://localhost:8080/build/runtime.js",
         "http://localhost:8080/build/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_localhost_por-3885b1.js",
-        "http://localhost:8080/build/vendors-frontend_node_modules_core-js_modules_es_array_filter_js-frontend_node_modules_core-j-064f7b.js",
+        "http://localhost:8080/build/vendors-frontend_node_modules_core-js_modules_es_array_concat_js-frontend_node_modules_core-j-ff1c43.js",
         "http://localhost:8080/build/app.js"
       ]
     },
