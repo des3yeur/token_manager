@@ -1,12 +1,46 @@
 {
-  "name": "token_manager",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true,
   "scripts": {
-    "start": "cd backend && npm run start"
+    "dev": "run-p dev:**",
+    "dev:symfony": "symfony serve",
+    "dev:react": "encore dev-server",
+    "prod": "sudo composer install && pnpm run prod:sequence",
+    "prod:sequence": "pnpm install && pnpm run prod:autoloader ",
+    "prod:autoloader": "composer install --no-dev --optimize-autoloader && npm run prod:warning",
+    "prod:warning": "echo Allow nodejs space with export NODE_OPTIONS=--max-old-space-size=1024",
+    "compile": "encore dev && npm run restart",
+    "restart": "sudo systemctl restart nginx && pnpm run restart:success",
+    "restart:success": "echo Success !",
+    "packages": "composer install && npm install",
+    "encore": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress",
+    "test": "echo Error: no test specified && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "@babel/core": "^7.17.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-react": "^7.22.15",
+    "@symfony/webpack-encore": "^4.0.0",
+    "autoprefixer": "^10.4.15",
+    "core-js": "^3.23.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.29",
+    "postcss-loader": "^7.3.3",
+    "regenerator-runtime": "^0.13.9",
+    "tailwindcss": "^3.3.3",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-notifier": "^1.15.0"
+  },
+  "dependencies": {
+    "axios": "^1.5.0",
+    "dotenv-webpack": "^8.0.1",
+    "process": "^0.11.10",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0"
+  }
 }
