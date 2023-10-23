@@ -5,18 +5,12 @@
     "dev": "run-p dev:**",
     "dev:symfony": "symfony serve",
     "dev:react": "encore dev-server",
-    "prod": "sudo composer install && pnpm run prod:sequence",
-    "prod:sequence": "pnpm install && pnpm run prod:autoloader",
-    "prod:autoloader": "composer install --no-dev --optimize-autoloader && npm run prod:warning",
-    "prod:warning": "echo Allow nodejs space with export NODE_OPTIONS=--max-old-space-size=1024 and run compile script",
-    "compile": "encore production --progress && npm run restart",
-    "restart": "sudo systemctl restart nginx && pnpm run restart:success",
-    "restart:success": "echo Success !",
+    "prod": "sudo composer install && pnpm run prod:node",
+    "prod:node": "pnpm install && pnpm run prod:autoloader ",
+    "prod:autoloader": "sudo composer install --no-dev --optimize-autoloader",
+    "prod:build": "encore production --progress",
     "packages": "composer install && npm install",
-    "encore": "encore dev",
-    "watch": "encore dev --watch",
-    "build": "encore production --progress",
-    "test": "echo Error: no test specified && exit 1"
+    "watch": "encore dev --watch"
   },
   "devDependencies": {
     "@babel/core": "^7.17.0",
