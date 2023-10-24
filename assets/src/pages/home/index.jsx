@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "../../components/layouts";
 
 const Home = () => {
   return (
@@ -27,6 +28,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+     
     </main>
   );
 };

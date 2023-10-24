@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Solidity from "../../components/blockchains/solidity";
 import Rust from "../../components/blockchains/rust";
+import Navbar from "../../components/layouts";
 
 const Dashboard = () => {
   const [blockchains, setBlockchains] = useState([]);
@@ -95,6 +96,9 @@ const Dashboard = () => {
         {window.user.roles.includes("ROLE_ADMIN") ? (
           <h1>CONTENU ADMIN</h1>
         ) : null}
+      </div>
+      <div>
+        <Navbar />
       </div>
     </>
   );
