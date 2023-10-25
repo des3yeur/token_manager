@@ -62,9 +62,10 @@ const Dashboard = () => {
       console.log();
     }
   };
-
+  
   return (
     <>
+    {window.user.roles.includes("ROLE_ADMIN") ? (
       <div className="bg-green95">
         <div className="grid grid-cols-3 ">
           <div className="grid grid-cols-2 text-white95 text-center card card-tertiary">
@@ -87,18 +88,17 @@ const Dashboard = () => {
               );
             })}
           </div>
-        </div>
-        <div className="col-span-2 flex justify-center items-center p-8  card card-tertiary">
-          {showBlockchains.solidity ? <Solidity /> : null}
-          {showBlockchains.rust ? <Rust /> : null}
-          {showBlockchains.go ? <Go /> : null}
-          {showBlockchains.ruby ? <Ruby /> : null}
+          <div className="col-span-2 flex justify-center items-center p-8  card card-tertiary">
+            {showBlockchains.solidity ? <Solidity /> : null}
+            {showBlockchains.rust ? <Rust /> : null}
+            {showBlockchains.go ? <Go /> : null}
+            {showBlockchains.ruby ? <Ruby /> : null}
+          </div>
         </div>
 
-        {window.user.roles.includes("ROLE_ADMIN") ? (
           <h1>CONTENU ADMIN</h1>
-        ) : null}
       </div>
+        ) : null}
       <div>
         <Navbar />
       </div>
