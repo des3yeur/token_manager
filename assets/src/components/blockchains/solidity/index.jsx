@@ -101,7 +101,7 @@ const Solidity = () => {
           <button
             type="button"
             onClick={() => SubmitSolidity()}
-            className="bg-cyan-300 p-2 uppercase font-bold text-lg"
+            className="btn mr-2 mb-2 btn-primary border-dark btn-text"
           >
             Envoyer
           </button>

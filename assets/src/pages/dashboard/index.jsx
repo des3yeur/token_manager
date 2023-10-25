@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Solidity from "../../components/blockchains/solidity";
 import Rust from "../../components/blockchains/rust";
-import Navbar from "../../components/layouts";
+import Navbar from "../../components/layouts/navbar";
 
 const Dashboard = () => {
   const [blockchains, setBlockchains] = useState([]);
@@ -65,28 +65,30 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="grid grid-cols-3 ">
-        <div className="grid grid-cols-2 bg-green95 text-white95 text-center ">
-          {blockchains.map((blockchain) => {
-            return (
-              <div key={blockchain.id}>
-                <div
-                  className="inline-flex"
-                  onClick={() => Blockchains(blockchain.blockchain)}
-                >
-                  {blockchain.symbol}
-                  <img
-                    src={blockchain.logo}
-                    alt=""
-                    width={50}
-                    height={"auto"}
-                  />
+      <div className="bg-green95">
+        <div className="grid grid-cols-3 ">
+          <div className="grid grid-cols-2 text-white95 text-center card card-tertiary">
+            {blockchains.map((blockchain) => {
+              return (
+                <div key={blockchain.id}>
+                  <div
+                    className="inline-flex"
+                    onClick={() => Blockchains(blockchain.blockchain)}
+                  >
+                    {blockchain.symbol}
+                    <img
+                      src={blockchain.logo}
+                      alt=""
+                      width={50}
+                      height={"auto"}
+                    />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-        <div className="col-span-2 flex justify-center items-center p-8 bg-gray95">
+        <div className="col-span-2 flex justify-center items-center p-8  card card-tertiary">
           {showBlockchains.solidity ? <Solidity /> : null}
           {showBlockchains.rust ? <Rust /> : null}
           {showBlockchains.go ? <Go /> : null}

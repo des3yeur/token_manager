@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../components/layouts";
+import Navbar from "../../components/layouts/navbar";
 
 const Home = () => {
   return (
@@ -12,23 +12,20 @@ const Home = () => {
             </h1>
           </div>
           <div className="card-body">
-            <h1 className="card-text">
-              Connectez-vous pour continuer
-            </h1>
+            <h1 className="card-text">Connectez-vous pour continuer</h1>
             <div className="flex justify-center d-flex mt-3">
               <a href={"/login"}>
-              <button
-                className="btn btn-lg mr-2 btn-primary border-dark"
-                type="button"
-              >
+                <button
+                  className="btn btn-lg mr-2 btn-primary border-dark"
+                  type="button"
+                >
                   <p className="">Connectez vous</p>
-              </button>
-                </a>
+                </button>
+              </a>
             </div>
           </div>
         </div>
       </div>
-     
     </main>
   );
 };

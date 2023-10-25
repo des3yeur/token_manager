@@ -1,5 +1,5 @@
-import NavbarDesktop from "./navbar/desktop";
-import NavbarMobile from "./navbar/mobile";
+import NavbarDesktop from "./desktop";
+import NavbarMobile from "./mobile";
 import React from "react";
 
 const Navbar = () => {
