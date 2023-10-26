@@ -4,19 +4,35 @@
 
 {% block body %}
     {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {{ error.messageKey|trans(error.messageData, 'security') }}
     {% endif %}
 
-    <form action="{{ path('app_login') }}" method="post">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}">
+    <section class="">
+        <div class="min-w-full min-h-screen bg-green95 card card-tertiary flex justify-center items-center">
+            <form action="{{ path('app_login') }}" method="post">
+                <div class="mb-4 mb-md-5">
+                    <h6 class="text-gray">Login</h6>
+                </div>
+                <div class="form-group flex flex-col align-items-center justify-content-between my-6">
+                    <label for="username" class="mr-3 text-center">Email :</label>
+                    <input type="text" id="username" name="_username" class="form-control w-75" />
+                </div>
+                <div
+                class="form-group has-success flex flex-col  align-items-center justify-content-between my-6"
+                >
+                    <label for="password" class="mr-3 text-center">Password :</label>
+                    <input type="password" id="password" name="_password" class="form-control is-valid w-75" />
+                </div>
+                <div class="flex justify-center">
+                    <div class="d-flex">
+                        <button class="btn btn-sm mr-3 btn-primary border-dark" type="submit">
+                            <span class="btn-text">Submit</span>
+                        </button>
+                </div>
+                {# If you want to control the URL the user is redirected to on success #}
+                <input type="hidden" name="_target_path" value="/profil"> 
+            </form>
+        </div>
+    </section>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password">
-
-        {# If you want to control the URL the user is redirected to on success
-        <input type="hidden" name="_target_path" value="/account"> #}
-
-        <button type="submit">login</button>
-    </form>
 {% endblock %}
