@@ -3,7 +3,7 @@ import Navbar from "../../components/layouts/navbar";
 
 const Home = () => {
   return (
-    <main className="bg-green95">
+    <main className="bg-green95 ">
       <div className="  min-h-screen flex flex-col justify-center items-center">
         <div className="card card-tertiary ">
           <div className="card-header ">

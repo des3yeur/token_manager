@@ -20,7 +20,7 @@ const NavbarDesktop = () => (
           </a>
         </div>
         <div className="nav-item">
-          <a href="" className="nav-link">
+          <a href="/logout" className="nav-link">
             <button className="nav-link-inner-text">Logout</button>
           </a>
         </div>
